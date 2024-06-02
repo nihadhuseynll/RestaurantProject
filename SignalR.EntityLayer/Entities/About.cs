@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.EntityLayer.Entities
 {
-    internal class About
+    public class About
     {
         public int AboutId { get; set; }
         public string ImageUrl { get; set; }

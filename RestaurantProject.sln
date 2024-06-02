@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRWebUI", "SignalRWebU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.EntityLayer", "SignalR.EntityLayer\SignalR.EntityLayer.csproj", "{56667DE4-57A6-4E98-ACC1-0D300E35BC7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.DataAccessLayer", "SignalRşDataAccessLayer\SignalR.DataAccessLayer.csproj", "{D67F95FD-E5DE-4249-B8B6-014E3B248311}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.DtoLayer", "SignalRDtoLayer\SignalR.DtoLayer.csproj", "{CEF0F69F-CC89-4389-B342-2B952299106E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.BusinessLayer", "SignalR.BusinessLayer\SignalR.BusinessLayer.csproj", "{EE74EF03-4478-41B6-BBD0-411189BD4F62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{56667DE4-57A6-4E98-ACC1-0D300E35BC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56667DE4-57A6-4E98-ACC1-0D300E35BC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56667DE4-57A6-4E98-ACC1-0D300E35BC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D67F95FD-E5DE-4249-B8B6-014E3B248311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D67F95FD-E5DE-4249-B8B6-014E3B248311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D67F95FD-E5DE-4249-B8B6-014E3B248311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D67F95FD-E5DE-4249-B8B6-014E3B248311}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF0F69F-CC89-4389-B342-2B952299106E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF0F69F-CC89-4389-B342-2B952299106E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF0F69F-CC89-4389-B342-2B952299106E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF0F69F-CC89-4389-B342-2B952299106E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE74EF03-4478-41B6-BBD0-411189BD4F62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE74EF03-4478-41B6-BBD0-411189BD4F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE74EF03-4478-41B6-BBD0-411189BD4F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE74EF03-4478-41B6-BBD0-411189BD4F62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

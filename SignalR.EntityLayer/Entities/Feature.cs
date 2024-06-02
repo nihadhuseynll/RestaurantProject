@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.EntityLayer.Entities
 {
-    internal class Feature
+    public class Feature
     {
         public int FeatureId { get; set; }
         public string Title1 { get; set; }

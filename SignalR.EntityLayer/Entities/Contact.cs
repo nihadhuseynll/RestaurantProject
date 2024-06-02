@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.EntityLayer.Entities
 {
-    internal class Contact
+    public class Contact
     {
         public int ContactId { get; set; }
         public string Location { get; set; }
