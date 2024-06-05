@@ -44,12 +44,6 @@ namespace SignalRApi.Controllers
             _categoryService.TDelete(value);
             return Ok("Category başarıyla silindi.");
         }
-        [HttpGet("GetCategory")]
-        public IActionResult GetCategory(int id)
-        {
-            var value=_categoryService.TGetById(id);    
-            return Ok(value);
-        }
         [HttpPut]
         public IActionResult UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
@@ -60,6 +54,12 @@ namespace SignalRApi.Controllers
                 CategoryStatus = updateCategoryDto.CategoryStatus
             });
             return Ok("Category başarıyla güncellendi.");
+        }
+        [HttpGet("GetCategory")]
+        public IActionResult GetCategory(int id)
+        {
+            var value = _categoryService.TGetById(id);
+            return Ok(value);
         }
     }
 }

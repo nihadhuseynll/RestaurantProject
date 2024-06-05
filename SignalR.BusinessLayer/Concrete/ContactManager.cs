@@ -20,27 +20,27 @@ namespace SignalR.BusinessLayer.Concrete
 
         public void TAdd(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Add(entity);    
         }
 
         public void TDelete(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Delete(entity);
         }
 
         public Contact TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _contactDal.GetById(id); 
         }
 
         public List<Contact> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _contactDal.GetListAll();
         }
 
         public void TUpdate(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Update(entity);
         }
     }
 }

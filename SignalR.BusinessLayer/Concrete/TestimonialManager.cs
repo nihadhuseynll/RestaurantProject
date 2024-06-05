@@ -20,27 +20,27 @@ namespace SignalR.BusinessLayer.Concrete
 
         public void TAdd(Testimonial entity)
         {
-            throw new NotImplementedException();
+            _testimonialDal.Add(entity);
         }
 
         public void TDelete(Testimonial entity)
         {
-            throw new NotImplementedException();
+            _testimonialDal.Delete(entity); 
         }
 
         public Testimonial TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _testimonialDal.GetById(id); 
         }
 
         public List<Testimonial> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _testimonialDal.GetListAll();
         }
 
         public void TUpdate(Testimonial entity)
         {
-            throw new NotImplementedException();
+            _testimonialDal.Update(entity); 
         }
     }
 }
