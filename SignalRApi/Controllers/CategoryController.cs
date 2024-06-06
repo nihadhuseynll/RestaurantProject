@@ -24,7 +24,7 @@ namespace SignalRApi.Controllers
         [HttpGet]
         public IActionResult CategoryList()
         {
-            var values=_mapper.Map<List<ResultCategoryDto>>(_categoryService.TGetListAll());
+            var values = _mapper.Map<List<ResultCategoryDto>>(_categoryService.TGetListAll());
             return Ok(values);
         }
         [HttpPost]
@@ -37,7 +37,7 @@ namespace SignalRApi.Controllers
             });
             return Ok("Category başarıyla eklendi.");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteCategory(int id)
         {
             var value=_categoryService.TGetById(id);
@@ -55,7 +55,7 @@ namespace SignalRApi.Controllers
             });
             return Ok("Category başarıyla güncellendi.");
         }
-        [HttpGet("GetCategory")]
+        [HttpGet("{id}")]
         public IActionResult GetCategory(int id)
         {
             var value = _categoryService.TGetById(id);
