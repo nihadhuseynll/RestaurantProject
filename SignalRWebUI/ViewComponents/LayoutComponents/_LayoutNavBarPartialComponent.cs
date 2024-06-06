@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace SignalRWebUI.ViewComponents.LayoutComponents
 {
-    public class _LayoutHeaderPartialComponent : ViewComponent
+    public class _LayoutNavBarPartialComponent : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
