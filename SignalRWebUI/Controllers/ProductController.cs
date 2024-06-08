@@ -83,7 +83,6 @@ namespace SignalRWebUI.Controllers
 											}).ToList();
 			ViewBag.b = values2;
 
-
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync($"https://localhost:7270/api/Product/{id}");
 			if (responseMessage.IsSuccessStatusCode)
@@ -100,7 +99,7 @@ namespace SignalRWebUI.Controllers
 			updateProductDto.ProductStatus = true;
 			var client= _httpClientFactory.CreateClient();
 			var jsonData=JsonConvert.SerializeObject(updateProductDto);	
-			StringContent stringContent=new StringContent(jsonData,Encoding.UTF8,"appsettings/json");
+			StringContent stringContent=new StringContent(jsonData,Encoding.UTF8,"application/json");
 			var responseMessage = await client.PutAsync("https://localhost:7270/api/Product/", stringContent);
 			if (responseMessage.IsSuccessStatusCode)
 			{
