@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DataAccessLayer.Abstract;
+using SignalR.DtoLayer.ContactDto;
 using SignalR.DtoLayer.DiscountDto;
 using SignalR.EntityLayer.Entities;
 
@@ -24,9 +25,9 @@ namespace SignalRApi.Controllers
         [HttpGet]
         public IActionResult DiscountList()
         {
-            _discountService.TGetListAll();
-            return Ok();
-        }
+			var values = _mapper.Map<List<ResultDiscountDto>>(_discountService.TGetListAll());
+			return Ok(values);
+		}
         [HttpPost]
         public IActionResult CreateDiscount(CreateDiscountDto createDiscountDto)
         {
@@ -52,14 +53,14 @@ namespace SignalRApi.Controllers
             });
             return Ok("Discount Başarıyla Güncəlləndi.");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteDiscount(int id)
         {
             var value = _discountService.TGetById(id);
             _discountService.TDelete(value);
             return Ok("Discount Başarıyla silindi.");
         }
-        [HttpGet("GetDiscount")]
+        [HttpGet("{id}")]
         public IActionResult GetDiscount(int id)
         {
             var value= _discountService.TGetById(id);

@@ -24,7 +24,7 @@ namespace SignalRApi.Controllers
         [HttpGet]
         public IActionResult ContactList()
         {
-            var values = _mapper.Map<List<ResultCategoryDto>>(_contactService.TGetListAll());
+            var values = _mapper.Map<List<ResultContactDto>>(_contactService.TGetListAll());
             return Ok(values);
         }
         [HttpPost]
@@ -39,7 +39,7 @@ namespace SignalRApi.Controllers
             });
             return Ok("Contact başarıyla eklendi.");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteContact(int id)
         {
             var value = _contactService.TGetById(id);
@@ -59,7 +59,7 @@ namespace SignalRApi.Controllers
             });
             return Ok("Contact başarıyla güncellendi.");
         }
-        [HttpGet("GetContact")]
+        [HttpGet("{id}")]
         public IActionResult GetContact(int id)
         {
             var value = _contactService.TGetById(id);
