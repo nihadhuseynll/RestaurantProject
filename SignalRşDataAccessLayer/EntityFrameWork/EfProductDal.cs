@@ -19,9 +19,49 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
 
         public List<Product> GetProductsWithCategories()
         {
-            var context= new SignalRContext();
-            var values = context.Products.Include(p => p.Category).ToList();
+			using var _context = new SignalRContext();
+			var values = _context.Products.Include(p => p.Category).ToList();
             return values;
         }
-    }
+
+		public int ProductCount()
+		{
+			using var _context = new SignalRContext();
+			return _context.Products.Count();   
+		}
+
+		public int ProductCountByDrink()
+		{
+			using var _context = new SignalRContext();
+			return _context.Products.Where(p=>p.CategoryId==(_context.Categories.Where(c=>c.CategoryName=="Icecek"))
+			                        .Select(c=>c.CategoryId).FirstOrDefault()).Count();
+		}
+
+		public int ProductCountByYemek()
+		{
+			using var _context = new SignalRContext();
+			return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.CategoryName == "Yemek"))
+									.Select(c => c.CategoryId).FirstOrDefault()).Count();
+		}
+
+		public string ProductNameByMaxPrice()
+		{
+			using var _context = new SignalRContext();	
+			return _context.Products.Where(p=>p.Price==(_context.Products.Max(p=>p.Price)))
+				                    .Select(p=>p.ProductName).FirstOrDefault();
+		}
+
+		public string ProductNameByMinPrice()
+		{
+			using var _context = new SignalRContext();
+			return _context.Products.Where(p => p.Price == (_context.Products.Min(p => p.Price)))
+									.Select(p => p.ProductName).FirstOrDefault();
+		}
+
+		public decimal ProductPriceByAvg()
+		{
+			using var _context = new SignalRContext();
+			return _context.Products.Average(p=>p.Price);	
+		}
+	}
 }

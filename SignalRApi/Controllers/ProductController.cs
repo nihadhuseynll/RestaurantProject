@@ -31,7 +31,37 @@ namespace SignalRApi.Controllers
             var values=_mapper.Map<List<ResultProductWithCategoryDto>>(_productService.TGetProductsWithCategories());
             return Ok(values);
         }
-        [HttpPost]
+        [HttpGet("ProductCount")]
+        public IActionResult ProductCount() 
+        {
+          return Ok(_productService.TProductCount());
+        }
+		[HttpGet("ProductCountByYemek")]
+		public IActionResult ProductCountByYemek()
+		{
+			return Ok(_productService.TProductCountByYemek());
+		}
+		[HttpGet("ProductCountByDrink")]
+		public IActionResult ProductCountByDrink()
+		{
+			return Ok(_productService.TProductCountByDrink());
+		}
+		[HttpGet("ProductPriceByAvg")]
+		public IActionResult ProductPriceByAvg()
+		{
+			return Ok(_productService.TProductPriceByAvg());
+		}
+		[HttpGet("ProductNameByMaxPrice")]
+		public IActionResult ProductNameByMaxPrice()
+		{
+			return Ok(_productService.TProductNameByMaxPrice());
+		}
+		[HttpGet("ProductNameByMinPrice")]
+		public IActionResult ProductNameByMinPrice()
+		{
+			return Ok(_productService.TProductNameByMinPrice());
+		}
+		[HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
             _productService.TAdd(new Product()
