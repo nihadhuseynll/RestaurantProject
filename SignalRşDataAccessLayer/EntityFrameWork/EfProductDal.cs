@@ -24,6 +24,13 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
             return values;
         }
 
+		public decimal ProductAvgPriceByFood()
+		{
+			using var _context=new SignalRContext();
+			return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.CategoryName == "Food"))
+			                        .Select(c => c.CategoryId).FirstOrDefault()).Average(a => a.Price);
+		}
+
 		public int ProductCount()
 		{
 			using var _context = new SignalRContext();
@@ -33,14 +40,14 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
 		public int ProductCountByDrink()
 		{
 			using var _context = new SignalRContext();
-			return _context.Products.Where(p=>p.CategoryId==(_context.Categories.Where(c=>c.CategoryName=="Icecek"))
+			return _context.Products.Where(p=>p.CategoryId==(_context.Categories.Where(c=>c.CategoryName=="Drink"))
 			                        .Select(c=>c.CategoryId).FirstOrDefault()).Count();
 		}
 
-		public int ProductCountByYemek()
+		public int ProductCountByFood()
 		{
 			using var _context = new SignalRContext();
-			return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.CategoryName == "Yemek"))
+			return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.CategoryName == "Food"))
 									.Select(c => c.CategoryId).FirstOrDefault()).Count();
 		}
 
