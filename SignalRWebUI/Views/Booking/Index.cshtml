@@ -4,8 +4,65 @@
 	Layout = "~/Views/AdminLayout/Index.cshtml";
 	int count = 0;
 }
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
 <div class="content">
 	<div class="container-fluid">
+		<script type="text/javascript">
+			$(document).ready(() => {
+
+				var connection = new signalR.HubConnectionBuilder()
+					.withUrl("https://localhost:7270/SignalRHub")
+					.build();
+
+				connection.start().then(() => {
+					$("#connstatus").text(connection.state);
+
+					setInterval(() => {
+						connection.invoke("GetBookingList");
+					}, 5000);
+
+				}).catch((err) => { console.log(err) });
+
+
+				connection.on("ReceiveBookingList", (values) => {
+					console.log(values)
+					let tablehtml = `<table class="table mt-3"><thead>
+								     <tr>
+								     <th scope="col">#</th>
+								     <th scope="col">Ad Soyad</th>
+								     <th scope="col">Telefon</th>
+								     <th scope="col">Kişi Sayısı</th>
+								     <th scope="col">Rezervasyon Durumu</th>
+								     <th scope="col">Sil</th>
+								     <th scope="col">Güncelle</th>
+								     </tr>
+								     </thead>
+								     <tbody>`
+
+					$.each(values, (index, item) => {
+						tablehtml += `<tr>
+									  <td>${item.bookingId}</td>
+									  <td>${item.name}</td>
+									  <td>${item.phone}</td>
+									  <td>${item.personCount}</td>
+									  <td>${"Rezrvasyon Alındı"}</td>
+									  <td><a href="/Booking/DeleteBooking/${item.bookingId}" class="btn btn-outline-danger">Sil</a></td>
+									  <td><a href="/Booking/UpdateBooking/${item.bookingId}" class="btn btn-outline-success">Guncelle</a></td>
+									  </tr>`
+					})
+
+					tablehtml += "</tbody></table>";
+					console.log(tablehtml)
+					$("#bookingList").html(tablehtml);
+
+				});
+
+			});	
+		</script>
 		<h4 class="page-title">Rezervasyon Islemleri</h4>
 		<div class="row">
 			<div class="col-md-12">
@@ -17,34 +74,7 @@
 						<div class="card-sub">
 							Rezervasyon ile ilgili islemleri asagidan gerceklstire biliriz.
 						</div>
-						<table class="table mt-3">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Ad Soyad</th>
-									<th scope="col">Telefon</th>
-									<th scope="col">Kisi Sayisi</th>
-									<th scope="col">Rezervasyon Durumu</th>
-									<th scope="col">Sil</th>
-									<th scope="col">Guncelle</th>
-								</tr>
-							</thead>
-							<tbody>
-								@foreach (var item in Model)
-								{
-									count++;
-									<tr>
-										<td>@count</td>
-										<td>@item.Name</td>
-										<td>@item.Phone</td>
-										<td>@item.PersonCount</td>
-										<td>Rezervasyon Alindi</td>
-										<td><a href="/Booking/DeleteBooking/@item.BookingId" class="btn btn-outline-danger">Sil</a></td>
-										<td><a href="/Booking/UpdateBooking/@item.BookingId" class="btn btn-outline-success">Guncelle</a></td>
-									</tr>
-								}
-							</tbody>
-						</table>
+						<div id="bookingList"></div>
 						<a href="/Booking/CreateBooking" class="btn btn-outline-primary">Yeni Rezervasyon Girisi</a>
 					</div>
 				</div>
