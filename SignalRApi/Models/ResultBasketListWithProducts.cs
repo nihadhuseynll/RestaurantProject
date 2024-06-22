@@ -1,6 +1,6 @@
-﻿namespace SignalRWebUI.Dtos.BasketDtos
+﻿namespace SignalRApi.Models
 {
-    public class ResultBasketDto
+    public class ResultBasketListWithProducts
     {
         public int BasketId { get; set; }
         public decimal Price { get; set; }
