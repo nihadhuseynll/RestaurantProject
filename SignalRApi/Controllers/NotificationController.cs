@@ -31,6 +31,18 @@ namespace SignalRApi.Controllers
 		{
 			return Ok(_notificationService.TGetAllNotificationsByFalse());
 		}
+		[HttpGet("NotificationStatusChangeToTrue/{id}")]
+		public IActionResult NotificationStatusChangeToTrue(int id)
+		{
+			_notificationService.TNotificationStatusChangeToTrue(id);
+			return Ok("Güncelleme Yapıldı.");
+		}
+		[HttpGet("NotificationStatusChangeToFalse/{id}")]
+		public IActionResult NotificationStatusChangeToFalse(int id)
+		{
+			_notificationService.TNotificationStatusChangeToFalse(id);
+			return Ok("Güncelleme Yapıldı.");
+		}
 		[HttpPost]
 		public IActionResult CreateNotification(CreateNotificationDto createNotificationDto)
 		{
@@ -39,7 +51,7 @@ namespace SignalRApi.Controllers
 				Type=createNotificationDto.Type,
 				Icon=createNotificationDto.Icon,
 				Description=createNotificationDto.Description,
-				Date=createNotificationDto.Date,
+				Date=Convert.ToDateTime(DateTime.Now.ToShortDateString()),
 				Status=false
 			});
 			return Ok("Notification eklendi");
