@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+
+@await Component.InvokeAsync("_UILayoutHeaderPartialComponent")
+
+<body class="sub_page">
+
+    @await Component.InvokeAsync("_MenuNavBarPartialComponent")
+	<script type="text/javascript">
+		$(document).ready(() => {
+
+			var connection = new signalR.HubConnectionBuilder()
+				.withUrl("https://localhost:7270/SignalRHub")
+				.build();
+
+			connection.start().then(() => {
+				$("#connstatus").text(connection.state);
+
+			}).catch((err) => { console.log(err) });
+
+
+			connection.on("ClientCountMessage", (value) => {
+				$("#clientcount").text(value);
+			})
+
+			
+		})
+	</script>
+
+    <h5 class="text-center mb-5 mt-5">All Clients : <span id="clientcount"></span></h5>
+
+    @await Component.InvokeAsync("_UILayoutFooterPartialComponent")
+
+    @await Component.InvokeAsync("_UILayoutScriptsPartialComponent")
+
+</body>
+
+</html>
+
