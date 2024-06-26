@@ -6,13 +6,13 @@
 }
 <div class="content">
 	<div class="container-fluid">
-		<h4 class="page-title">Contact Islemleri</h4>
+		<h4 class="page-title">Kontakt Işlemleri</h4>
 		<div class="row">
 			<div class="col-md-12">
 				<form method="post">
 					<div class="card">
 						<div class="card-header">
-							<div class="card-title">Yeni Contact Girisi</div>
+							<div class="card-title">Yeni Kontakt Girişi</div>
 						</div>
 						<input type="hidden" asp-for="ContactId"/>
 						<div class="card-body">
@@ -23,7 +23,7 @@
 						</div>
 						<div class="card-body">
 							<div class="form-group">
-								<label for="Phone">Telefon Numarasi Giriniz</label>
+								<label for="Phone">Telefon Numarası Giriniz</label>
 								<input type="text" class="form-control" asp-for="Phone" id="Phone" placeholder="Phone">
 							</div>
 						</div>
@@ -35,8 +35,32 @@
 						</div>
 						<div class="card-body">
 							<div class="form-group">
-								<label for="FooterDescription">Aciklamayi Giriniz</label>
+								<label for="FooterDescription">Açiklamayi Giriniz</label>
 								<input type="text" class="form-control" asp-for="FooterDescription" id="FooterDescription" placeholder="FooterDescription">
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label for="FooterTitle">Başlık Giriniz</label>
+								<input type="text" class="form-control" asp-for="FooterTitle" id="FooterTitle" placeholder="FooterTitle">
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label for="OpenDays">Çalışma Saatleri</label>
+								<input type="text" class="form-control" asp-for="OpenDays" id="OpenDays" placeholder="OpenDays">
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label for="OpenDaysDescription">Çalışma Saatleri Açiklamayi Giriniz</label>
+								<input type="text" class="form-control" asp-for="OpenDaysDescription" id="OpenDaysDescription" placeholder="OpenDaysDescription">
+							</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label for="OpenHours">Saatleri Giriniz</label>
+								<input type="text" class="form-control" asp-for="OpenHours" id="OpenHours" placeholder="OpenHours">
 							</div>
 						</div>
 						<div class="card-action">

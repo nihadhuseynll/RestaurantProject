@@ -66,5 +66,18 @@ namespace SignalRApi.Controllers
             var value= _discountService.TGetById(id);
             return Ok(value);
         }
-    }
+        [HttpGet("ChangeStatusToTrue/{id}")]
+        public IActionResult ChangeStatusToTrue(int id)
+        {
+            _discountService.TChangeStatusToTrue(id);
+            return Ok("Durum Güncellendi.");
+        }
+		[HttpGet("ChangeStatusToFalse/{id}")]
+		public IActionResult ChangeStatusToFalse(int id)
+		{
+			_discountService.TChangeStatusToFalse(id);
+			return Ok("Durum Güncellendi.");
+		}
+
+	}
 }

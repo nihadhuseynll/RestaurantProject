@@ -36,15 +36,15 @@ namespace SignalRApi.Controllers
         {
           return Ok(_productService.TProductCount());
         }
-		[HttpGet("ProductCountByFood")]
+		[HttpGet("ProductCountByHamburger")]
 		public IActionResult ProductCountByFood()
 		{
-			return Ok(_productService.TProductCountByFood());
+			return Ok(_productService.TProductCountByHamburger());
 		}
-		[HttpGet("ProductCountByDrink")]
+		[HttpGet("ProductCountByIcecek")]
 		public IActionResult ProductCountByDrink()
 		{
-			return Ok(_productService.TProductCountByDrink());
+			return Ok(_productService.TProductCountByIcecek());
 		}
 		[HttpGet("ProductPriceByAvg")]
 		public IActionResult ProductPriceByAvg()
@@ -61,10 +61,10 @@ namespace SignalRApi.Controllers
 		{
 			return Ok(_productService.TProductNameByMinPrice());
 		}
-		[HttpGet("ProductAvgPriceByFood")]
+		[HttpGet("ProductAvgPriceByHamburger")]
 		public IActionResult ProductAvgPriceByFood()
 		{
-			return Ok(_productService.TProductAvgPriceByFood());
+			return Ok(_productService.TProductAvgPriceByHamburger());
 		}
 		[HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)

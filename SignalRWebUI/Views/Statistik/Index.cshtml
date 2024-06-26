@@ -44,12 +44,12 @@
 					$("#passivecategorycount").text(value4);
 				})
 
-				connection.on("ReceiveProductCountByFood", (value5) => {
-					$("#productcountbyfood").text(value5);
+				connection.on("ReceiveProductCountByHamburger", (value5) => {
+					$("#productcountbyhamburger").text(value5);
 				})
 
-				connection.on("ReceiveProductCountByDrink", (value6) => {
-					$("#productcountbydrink").text(value6);
+				connection.on("ReceiveProductCountByIcecek", (value6) => {
+					$("#productcountbyicecek").text(value6);
 				})
 
 				connection.on("ReceiveProductPriceByAvg", (value7) => {
@@ -64,8 +64,8 @@
 					$("#productnamebyminprice").text(value9);
 				})
 
-				connection.on("ReceiveProductAvgPriceByFood", (value10) => {
-					$("#productavgpricebyfood").text(value10);
+				connection.on("ReceiveProductAvgPriceByHamburger", (value10) => {
+					$("#productavgpricebyhamburger").text(value10);
 				})
 
 				connection.on("ReceiveTotalOrderCount", (value11) => {
@@ -185,8 +185,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Product Count By Food</p>
-									<h4 class="card-title" id="productcountbyfood"></h4>
+									<p class="card-category">Product Count By Hamburger</p>
+									<h4 class="card-title" id="productcountbyhamburger"></h4>
 								</div>
 							</div>
 						</div>
@@ -204,8 +204,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Product Count By Drink</p>
-									<h4 class="card-title" id="productcountbydrink"></h4>
+									<p class="card-category">Product Count By Icecek</p>
+									<h4 class="card-title" id="productcountbyicecek"></h4>
 								</div>
 							</div>
 						</div>
@@ -283,8 +283,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Product Avg Price</p>
-									<h4 class="card-title" id="productavgpricebyfood"></h4>
+									<p class="card-category">Product Avg Price By Hamburger</p>
+									<h4 class="card-title" id="productavgpricebyhamburger"></h4>
 								</div>
 							</div>
 						</div>

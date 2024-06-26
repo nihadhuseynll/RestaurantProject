@@ -1,6 +1,6 @@
 ﻿namespace SignalRWebUI.Dtos.SliderDtos
 {
-	public class ResultSliderDto
+	public class GetSliderDto
 	{
 		public int SliderId { get; set; }
 		public string Title1 { get; set; }

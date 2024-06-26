@@ -24,10 +24,10 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
             return values;
         }
 
-		public decimal ProductAvgPriceByFood()
+		public decimal ProductAvgPriceByHamburger()
 		{
 			using var _context=new SignalRContext();
-			return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.CategoryName == "Food"))
+			return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.CategoryName == "Hamburger"))
 			                        .Select(c => c.CategoryId).FirstOrDefault()).Average(a => a.Price);
 		}
 
@@ -37,17 +37,17 @@ namespace SignalR.DataAccessLayer.EntityFrameWork
 			return _context.Products.Count();   
 		}
 
-		public int ProductCountByDrink()
+		public int ProductCountByHamburger()
 		{
 			using var _context = new SignalRContext();
-			return _context.Products.Where(p=>p.CategoryId==(_context.Categories.Where(c=>c.CategoryName=="Drink"))
+			return _context.Products.Where(p=>p.CategoryId==(_context.Categories.Where(c=>c.CategoryName== "Hamburger"))
 			                        .Select(c=>c.CategoryId).FirstOrDefault()).Count();
 		}
 
-		public int ProductCountByFood()
+		public int ProductCountByIcecek()
 		{
 			using var _context = new SignalRContext();
-			return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.CategoryName == "Food"))
+			return _context.Products.Where(p => p.CategoryId == (_context.Categories.Where(c => c.CategoryName == "İçecek"))
 									.Select(c => c.CategoryId).FirstOrDefault()).Count();
 		}
 

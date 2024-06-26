@@ -41,11 +41,11 @@ namespace SignalRApi.Hubs
 			var value4 = _categoryService.TPassiveCategoryCount();
 			await Clients.All.SendAsync("ReceivePassiveCategoryCount", value4);
 
-			var value5 = _productService.TProductCountByFood();
-			await Clients.All.SendAsync("ReceiveProductCountByFood", value5);
+			var value5 = _productService.TProductCountByHamburger();
+			await Clients.All.SendAsync("ReceiveProductCountByHamburger", value5);
 
-			var value6 = _productService.TProductCountByDrink();
-			await Clients.All.SendAsync("ReceiveProductCountByDrink", value6);
+			var value6 = _productService.TProductCountByIcecek();
+			await Clients.All.SendAsync("ReceiveProductCountByIcecek", value6);
 
 			var value7 = _productService.TProductPriceByAvg();
 			await Clients.All.SendAsync("ReceiveProductPriceByAvg", value7.ToString("0.00" + "$"));
@@ -56,8 +56,8 @@ namespace SignalRApi.Hubs
 			var value9 = _productService.TProductNameByMinPrice();
 			await Clients.All.SendAsync("ReceiveProductNameByMinPrice", value9);
 
-			var value10 = _productService.TProductAvgPriceByFood();
-			await Clients.All.SendAsync("ReceiveProductAvgPriceByFood", value10.ToString("0.00" + "$"));
+			var value10 = _productService.TProductAvgPriceByHamburger();
+			await Clients.All.SendAsync("ReceiveProductAvgPriceByHamburger", value10.ToString("0.00" + "$"));
 
 			var value11 = _orderService.TTotalOrderCount();
 			await Clients.All.SendAsync("ReceiveTotalOrderCount", value11);

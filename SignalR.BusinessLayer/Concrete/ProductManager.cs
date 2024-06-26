@@ -43,9 +43,9 @@ namespace SignalR.BusinessLayer.Concrete
             return _productDal.GetProductsWithCategories();
         }
 
-		public decimal TProductAvgPriceByFood()
+		public decimal TProductAvgPriceByHamburger()
 		{
-			return _productDal.ProductAvgPriceByFood();
+			return _productDal.ProductAvgPriceByHamburger();
 		}
 
 		public int TProductCount()
@@ -53,14 +53,14 @@ namespace SignalR.BusinessLayer.Concrete
 			return _productDal.ProductCount();
 		}
 
-		public int TProductCountByDrink()
+		public int TProductCountByHamburger()
 		{
-			return _productDal.ProductCountByDrink();
+			return _productDal.ProductCountByHamburger();
 		}
 
-		public int TProductCountByFood()
+		public int TProductCountByIcecek()
 		{
-			return _productDal.ProductCountByFood();
+			return _productDal.ProductCountByIcecek();
 		}
 
 		public string TProductNameByMaxPrice()
