@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.CategoryDtos;
@@ -6,6 +7,7 @@ using System.Text;
 
 namespace SignalRWebUI.Controllers
 {
+    [AllowAnonymous]
     public class CategoryController : Controller
     {
 

@@ -1,0 +1,55 @@
+﻿@model UserEditDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Kullanıcı ve Şifre İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<form method="post">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">Kullanıcı ve Şifre Güncelleme İşlemi</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label for="Name">Adınızı Giriniz :</label>
+								<input type="text" class="form-control" asp-for="Name" id="Name" placeholder="Enter Name">
+							</div>
+							<div class="form-group">
+								<label for="SurName">Soyadınızı Giriniz :</label>
+								<input type="text" class="form-control" asp-for="SurName" id="SurName" placeholder="Enter SurName">
+							</div>
+							<div class="form-group">
+								<label for="Mail">Email Adresinizi Giriniz :</label>
+								<input type="email" class="form-control" asp-for="Mail" id="Mail" placeholder="Enter Mail">
+							</div>
+							<div class="form-group">
+								<label for="UserName">Kullanıcı Adını Giriniz :</label>
+								<input type="text" class="form-control" asp-for="UserName" id="UserName" placeholder="Enter UserName">
+							</div>
+							<div class="form-group">
+								<label for="Password">Şifre Giriniz :</label>
+								<input type="password" class="form-control" asp-for="Password" id="Password" placeholder="Enter Password">
+							</div>
+							<div class="form-group">
+								<label for="ConfirmPassword">Şifre Tekrarı Giriniz</label>
+								<input type="password" class="form-control" asp-for="ConfirmPassword" id="ConfirmPassword" placeholder="Enter ConfirmPassword">
+							</div>
+						</div>
+						<div class="card-action">
+							<button class="btn btn-success">Gönder</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
